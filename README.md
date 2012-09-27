@@ -1,4 +1,4 @@
-# Heroku buildpack: Lua
+# Stackato-compatible Heroku buildpack: Lua
 
 This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpack)
 for Lua apps.
@@ -11,7 +11,7 @@ Read a tutorial at <http://leafo.net/posts/lua_on_heroku.html>.
 
 Create an app with the buildpack:
 
-    $ heroku create --stack cedar --buildpack http://github.com/leafo/heroku-buildpack-lua.git
+    $ stackato push --buildpack https://github.com/dkulchenko/stackato-buildpack-lua -n
 
 ### Dependencies
 
@@ -76,15 +76,9 @@ Use [Xavante][5] for a quick web server:
 
     xavante.start()
 
-Tell Heroku to spawn your web server by creating a file called `Procfile`:
+Tell Stackato to spawn your web server by creating a file called `Procfile`:
 
     web:     lua web.lua $PORT
-
-After pushing, if the web server doesn't start automatically, tell Heroku to
-start it:
-
-    $ heroku scale web=1
-
 
 ## Note
 
